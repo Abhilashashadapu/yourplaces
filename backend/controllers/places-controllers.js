@@ -72,7 +72,7 @@ const createPlace = async (req, res, next) => {
   }
 
   const { title, description, address } = req.body;
-  const creator = req.userId; // Get creator ID securely from JWT token
+  const creator = req.userId; 
 
   // let coordinates;
   // try {

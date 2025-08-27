@@ -64,3 +64,4 @@ const UserPlaces = () => {
 };
 
 export default UserPlaces;
+
