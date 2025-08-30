@@ -13,9 +13,7 @@ const Users = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const responseData = await sendRequest(
-          `${API_URL}/users`
-        );
+        const responseData = await sendRequest(`${API_URL}/users`);
 
         setLoadedUsers(responseData.users);
       } catch (err) {}

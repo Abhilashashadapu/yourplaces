@@ -71,7 +71,7 @@ const NewPlace = () => {
       navigate("/"); // UPDATED navigation
     } catch (err) {}
   };
-  };
+
 
   return (
     <>
@@ -114,6 +114,6 @@ const NewPlace = () => {
       </form>
     </>
   );
-};
 
+};
 export default NewPlace;

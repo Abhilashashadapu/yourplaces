@@ -8,6 +8,7 @@ import { AuthContext } from "../../shared/context/auth-context";
 import "./PlaceItem.css";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
+import { API_URL } from "../../shared/util/api";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const PlaceItem = (props) => {
@@ -32,7 +33,7 @@ const PlaceItem = (props) => {
     setShowConfirmModal(false);
     try {
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/places?pid=${props.id}`,
+        `${API_URL}/places?pid=${props.id}`,
         "DELETE",
         null,
         {

@@ -8,6 +8,7 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
+import { API_URL } from "../../shared/util/api";
 import { useForm } from "../../shared/hooks/form-hook";
 import "./PlaceForm.css";
 import { useHttpClient } from "../../shared/hooks/http-hook";
@@ -40,7 +41,7 @@ const UpdatePlace = () => {
     const fetchPlace = async () => {
       try {
         const responseData = await sendRequest(
-          `${process.env.REACT_APP_BACKEND_URL}/places?pid=${placeId}`
+          `${API_URL}/places?pid=${placeId}`
         );
 
         if (!responseData || !responseData.place) {
@@ -73,7 +74,7 @@ const UpdatePlace = () => {
     event.preventDefault();
     try {
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/places?pid=${placeId}`,
+        `${API_URL}/places?pid=${placeId}`,
         "PATCH",
         JSON.stringify({
           title: formState.inputs.title.value,
