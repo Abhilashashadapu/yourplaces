@@ -8,7 +8,7 @@ import { AuthContext } from "../../shared/context/auth-context";
 import "./PlaceItem.css";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import ErrorModal from "../../shared/components/UIElements/ErrorModal";
-import { API_URL } from "../../shared/util/api";
+import { API_URL, getImageUrl } from "../../shared/util/api";
 import LoadingSpinner from "../../shared/components/UIElements/LoadingSpinner";
 
 const PlaceItem = (props) => {
@@ -80,7 +80,7 @@ const PlaceItem = (props) => {
         <Card className="place-item__content">
           <div className="place-item__image">
             <img
-              src={props.image || "https://via.placeholder.com/300x200"}
+              src={getImageUrl(props.image)}
               alt={props.title}
             />
           </div>

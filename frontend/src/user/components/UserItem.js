@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 
 import Avatar from "../../shared/components/UIElements/Avatar";
 import Card from "../../shared/components/UIElements/Card";
+import { getImageUrl } from "../../shared/util/api";
 import "./UserItem.css";
 
 const UserItem = (props) => {
@@ -12,7 +13,7 @@ const UserItem = (props) => {
         <Link to={`/${props.id}/places`}>
           <div className="user-item__image">
             <Avatar
-              image={props.image || "https://via.placeholder.com/150"}
+              image={getImageUrl(props.image)}
               alt={props.name}
             />
           </div>

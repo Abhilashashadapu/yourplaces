@@ -40,9 +40,7 @@ const UpdatePlace = () => {
   useEffect(() => {
     const fetchPlace = async () => {
       try {
-        const responseData = await sendRequest(
-          `${API_URL}/places/${placeId}`
-        );
+        const responseData = await sendRequest(`${API_URL}/places/${placeId}`);
 
         if (!responseData || !responseData.place) {
           setIdentifiedPlace(null);
