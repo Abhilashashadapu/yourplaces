@@ -1,0 +1,25 @@
+{
+  "version": 2,
+  "name": "yourplaces-frontend",
+  "builds": [
+    {
+      "src": "package.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "build"
+      }
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "/$1"
+    }
+  ],
+  "env": {
+    "REACT_APP_BACKEND_URL": "https://your-backend-url.railway.app/api",
+    "REACT_APP_GOOGLE_MAPS_API_KEY": "AIzaSyBmuWNQs8-6Hce-TScTY4KbKfYPbmfFQMg",
+    "REACT_APP_NAME": "YourPlaces",
+    "REACT_APP_VERSION": "1.0.0"
+  }
+}

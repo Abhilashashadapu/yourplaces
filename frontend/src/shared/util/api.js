@@ -10,7 +10,10 @@ const getApiUrl = () => {
 
 // Get the base URL for the backend server (without /api)
 const getBackendUrl = () => {
-  return process.env.REACT_APP_BACKEND_URL?.replace('/api', '') || "http://localhost:5000";
+  return (
+    process.env.REACT_APP_BACKEND_URL?.replace("/api", "") ||
+    "http://localhost:5000"
+  );
 };
 
 export const API_URL = getApiUrl();
@@ -19,7 +22,7 @@ export const BACKEND_URL = getBackendUrl();
 // Helper function to construct image URLs
 export const getImageUrl = (imagePath) => {
   if (!imagePath) return "https://via.placeholder.com/300x200";
-  if (imagePath.startsWith('http')) return imagePath;
+  if (imagePath.startsWith("http")) return imagePath;
   return `${BACKEND_URL}/${imagePath}`;
 };
 
