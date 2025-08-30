@@ -15,6 +15,7 @@ import {
 import { useForm } from "../../shared/hooks/form-hook";
 import { useHttpClient } from "../../shared/hooks/http-hook";
 import { AuthContext } from "../../shared/context/auth-context";
+import { API_URL } from "../../shared/util/api";
 
 import "./PlaceForm.css";
 
@@ -62,13 +63,14 @@ const NewPlace = () => {
     console.log("Submitting place:", placeData);
     try {
       await sendRequest(
-        `${process.env.REACT_APP_BACKEND_URL}/places`,
+        `${API_URL}/places`,
         "POST",
         JSON.stringify(placeData),
         { "Content-Type": "application/json" }
       );
       navigate("/"); // UPDATED navigation
     } catch (err) {}
+  };
   };
 
   return (
