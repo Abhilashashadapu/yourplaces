@@ -51,27 +51,29 @@ const NewPlace = () => {
   const placeSubmitHandler = async (event) => {
     event.preventDefault();
 
-    // Create JSON payload instead of FormData for Vercel functions
-    const placeData = {
+    // Create FormData for file upload
+    const formData = new FormData();
+    formData.append("title", formState.inputs.title.value);
+    formData.append("description", formState.inputs.description.value);
+    formData.append("address", formState.inputs.address.value);
+    formData.append("creator", auth.userId);
+    formData.append("image", formState.inputs.image.value);
+
+    console.log("Submitting place:", {
       title: formState.inputs.title.value,
       description: formState.inputs.description.value,
       address: formState.inputs.address.value,
       creator: auth.userId,
-      image: formState.inputs.image.value || null,
-    };
+      image: formState.inputs.image.value,
+    });
 
-    console.log("Submitting place:", placeData);
     try {
-      await sendRequest(
-        `${API_URL}/places`,
-        "POST",
-        JSON.stringify(placeData),
-        { "Content-Type": "application/json" }
-      );
+      await sendRequest(`${API_URL}/places`, "POST", formData, {
+        Authorization: "Bearer " + auth.token,
+      });
       navigate("/"); // UPDATED navigation
     } catch (err) {}
   };
-
 
   return (
     <>
@@ -114,6 +116,5 @@ const NewPlace = () => {
       </form>
     </>
   );
-
 };
 export default NewPlace;

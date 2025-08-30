@@ -1,0 +1,37 @@
+# Vercel Ignore File
+# Ignore backend directory since we're only deploying frontend to Vercel
+
+../backend/
+node_modules/
+.git/
+*.log
+.env.local
+.env.development
+.env.test
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Cache
+.cache/
+.eslintcache
+
+# Coverage
+coverage/
+
+# Documentation
+*.md
+!README.md

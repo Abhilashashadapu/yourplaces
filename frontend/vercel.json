@@ -12,13 +12,17 @@
   ],
   "routes": [
     {
+      "src": "/static/(.*)",
+      "dest": "/static/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "/$1"
+      "dest": "/index.html"
     }
   ],
   "env": {
-    "REACT_APP_BACKEND_URL": "https://your-backend-url.railway.app/api",
-    "REACT_APP_GOOGLE_MAPS_API_KEY": "AIzaSyBmuWNQs8-6Hce-TScTY4KbKfYPbmfFQMg",
+    "REACT_APP_BACKEND_URL": "$REACT_APP_BACKEND_URL",
+    "REACT_APP_GOOGLE_MAPS_API_KEY": "$REACT_APP_GOOGLE_MAPS_API_KEY",
     "REACT_APP_NAME": "YourPlaces",
     "REACT_APP_VERSION": "1.0.0"
   }
