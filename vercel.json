@@ -24,6 +24,14 @@
       "runtime": "nodejs18.x"
     }
   },
+  "build": {
+    "env": {
+      "REACT_APP_BACKEND_URL": "/api",
+      "REACT_APP_GOOGLE_MAPS_API_KEY": "AIzaSyBmuWNQs8-6Hce-TScTY4KbKfYPbmfFQMg",
+      "REACT_APP_NAME": "YourPlaces",
+      "REACT_APP_VERSION": "1.0.0"
+    }
+  },
   "env": {
     "MONGODB_URI": "@mongodb_uri",
     "JWT_SECRET": "@jwt_secret"

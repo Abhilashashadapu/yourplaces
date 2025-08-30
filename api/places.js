@@ -89,7 +89,9 @@ export default async function handler(req, res) {
 
       case "DELETE":
         const { pid: deletePid } = req.query;
-        const deleteResult = await placesCollection.deleteOne({ id: deletePid });
+        const deleteResult = await placesCollection.deleteOne({
+          id: deletePid,
+        });
 
         if (deleteResult.deletedCount === 0) {
           return res.status(404).json({ message: "Place not found" });

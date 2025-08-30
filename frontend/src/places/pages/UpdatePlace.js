@@ -43,7 +43,6 @@ const UpdatePlace = () => {
           `${process.env.REACT_APP_BACKEND_URL}/places?pid=${placeId}`
         );
 
-
         if (!responseData || !responseData.place) {
           setIdentifiedPlace(null);
         } else {
@@ -82,7 +81,7 @@ const UpdatePlace = () => {
         }),
         {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${auth.token}`
+          Authorization: `Bearer ${auth.token}`,
         }
       );
       navigate("/" + auth.userId + "/places");

@@ -1,7 +1,7 @@
 // Configuration for API endpoints and app settings
 const config = {
-  // Backend API URL - uses environment variable or fallback for development
-  API_BASE_URL: process.env.REACT_APP_BACKEND_URL || 'http://localhost:5000/api',
+  // Backend API URL - uses environment variable or fallback for production
+  API_BASE_URL: process.env.REACT_APP_BACKEND_URL || '/api',
   
   // Google Maps API Key
   GOOGLE_MAPS_API_KEY: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,

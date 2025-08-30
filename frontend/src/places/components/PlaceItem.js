@@ -84,7 +84,7 @@ const PlaceItem = (props) => {
         <Card className="place-item__content">
           <div className="place-item__image">
             <img
-              src={props.image || 'https://via.placeholder.com/300x200'}
+              src={props.image || "https://via.placeholder.com/300x200"}
               alt={props.title}
             />
           </div>
