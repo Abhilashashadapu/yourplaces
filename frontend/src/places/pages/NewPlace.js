@@ -49,15 +49,24 @@ const NewPlace = () => {
 
   const placeSubmitHandler = async (event) => {
     event.preventDefault();
-    const formData = new FormData();
-    formData.append("title", formState.inputs.title.value);
-    formData.append("description", formState.inputs.description.value);
-    formData.append("address", formState.inputs.address.value);
-    formData.append("creator", auth.userId);
-    formData.append("image", formState.inputs.image.value);
-    console.log(formState.inputs);
+
+    // Create JSON payload instead of FormData for Vercel functions
+    const placeData = {
+      title: formState.inputs.title.value,
+      description: formState.inputs.description.value,
+      address: formState.inputs.address.value,
+      creator: auth.userId,
+      image: formState.inputs.image.value || null,
+    };
+
+    console.log("Submitting place:", placeData);
     try {
-      await sendRequest("http://localhost:5000/api/places", "POST", formData);
+      await sendRequest(
+        `${process.env.REACT_APP_BACKEND_URL}/places`,
+        "POST",
+        JSON.stringify(placeData),
+        { "Content-Type": "application/json" }
+      );
       navigate("/"); // UPDATED navigation
     } catch (err) {}
   };

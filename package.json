@@ -1,0 +1,23 @@
+{
+  "name": "yourplaces-api",
+  "version": "1.0.0",
+  "description": "YourPlaces API - Vercel Serverless Functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "mongodb": "^5.7.0",
+    "bcryptjs": "^2.4.3",
+    "jsonwebtoken": "^9.0.2",
+    "uuid": "^9.0.0"
+  },
+  "keywords": [
+    "vercel",
+    "serverless",
+    "api",
+    "yourplaces"
+  ],
+  "author": "Abhilash",
+  "license": "MIT"
+}
