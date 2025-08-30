@@ -29,7 +29,8 @@
       "REACT_APP_BACKEND_URL": "/api",
       "REACT_APP_GOOGLE_MAPS_API_KEY": "AIzaSyBmuWNQs8-6Hce-TScTY4KbKfYPbmfFQMg",
       "REACT_APP_NAME": "YourPlaces",
-      "REACT_APP_VERSION": "1.0.0"
+      "REACT_APP_VERSION": "1.0.0",
+      "NODE_ENV": "production"
     }
   },
   "env": {
