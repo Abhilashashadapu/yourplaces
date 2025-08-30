@@ -13,12 +13,12 @@ const app = express();
 // Configure CORS for development and production
 const corsOptions = {
   origin: [
-    'http://localhost:3000',
-    'https://yourplaces.vercel.app',
-    process.env.FRONTEND_URL
+    "http://localhost:3000",
+    "https://yourplaces.vercel.app",
+    process.env.FRONTEND_URL,
   ].filter(Boolean),
   credentials: true,
-  optionsSuccessStatus: 200
+  optionsSuccessStatus: 200,
 };
 app.use(cors(corsOptions));
 
@@ -42,14 +42,20 @@ app.use((error, req, res, next) => {
   if (res.headersSent) return next(error);
 
   // Handle Multer errors
-  if (error.code === 'LIMIT_FILE_SIZE') {
-    return res.status(413).json({ message: 'File too large. Maximum size is 1MB.' });
+  if (error.code === "LIMIT_FILE_SIZE") {
+    return res
+      .status(413)
+      .json({ message: "File too large. Maximum size is 1MB." });
   }
-  if (error.code === 'LIMIT_UNEXPECTED_FILE') {
-    return res.status(400).json({ message: 'Unexpected file field.' });
+  if (error.code === "LIMIT_UNEXPECTED_FILE") {
+    return res.status(400).json({ message: "Unexpected file field." });
   }
-  if (error.message === 'Invalid mime type!') {
-    return res.status(400).json({ message: 'Invalid file type. Only PNG, JPEG, and JPG are allowed.' });
+  if (error.message === "Invalid mime type!") {
+    return res
+      .status(400)
+      .json({
+        message: "Invalid file type. Only PNG, JPEG, and JPG are allowed.",
+      });
   }
 
   res
@@ -61,7 +67,7 @@ app.use((error, req, res, next) => {
 const MONGODB_URI = process.env.MONGODB_URI;
 
 if (!MONGODB_URI) {
-  console.error('MONGODB_URI environment variable is required');
+  console.error("MONGODB_URI environment variable is required");
   process.exit(1);
 }
 
@@ -71,7 +77,7 @@ mongoose
     const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
       console.log(`Server running on port ${PORT}`);
-      console.log(`Environment: ${process.env.NODE_ENV || 'development'}`);
+      console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
     });
   })
   .catch((err) => {

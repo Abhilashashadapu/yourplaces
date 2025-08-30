@@ -13,11 +13,13 @@ export const API_URL = getApiUrl();
 // Log the API URL being used (for debugging)
 console.log("YourPlaces API_URL:", API_URL);
 
-export default {
+const apiConfig = {
   API_URL,
   ENDPOINTS: {
     USERS: `${API_URL}/users`,
-    LOGIN: `${API_URL}/login`,
+    LOGIN: `${API_URL}/users/login`,
     PLACES: `${API_URL}/places`,
   },
 };
+
+export default apiConfig;

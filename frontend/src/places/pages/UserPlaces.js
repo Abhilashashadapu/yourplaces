@@ -17,7 +17,7 @@ const UserPlaces = () => {
     const fetchPlaces = async () => {
       try {
         const responseData = await sendRequest(
-          `${API_URL}/places?uid=${userId}`
+          `${API_URL}/places/user/${userId}`
         );
         if (!responseData || !responseData.places) {
           setLoadedPlaces([]);

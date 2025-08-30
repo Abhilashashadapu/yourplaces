@@ -41,7 +41,7 @@ const UpdatePlace = () => {
     const fetchPlace = async () => {
       try {
         const responseData = await sendRequest(
-          `${API_URL}/places?pid=${placeId}`
+          `${API_URL}/places/${placeId}`
         );
 
         if (!responseData || !responseData.place) {
@@ -74,7 +74,7 @@ const UpdatePlace = () => {
     event.preventDefault();
     try {
       await sendRequest(
-        `${API_URL}/places?pid=${placeId}`,
+        `${API_URL}/places/${placeId}`,
         "PATCH",
         JSON.stringify({
           title: formState.inputs.title.value,
