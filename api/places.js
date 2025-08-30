@@ -20,12 +20,21 @@ export default async function handler(req, res) {
 
     switch (req.method) {
       case "GET":
-        const { uid } = req.query;
+        const { uid, pid } = req.query;
         let places;
 
-        if (uid) {
+        if (pid) {
+          // Get single place by ID
+          const place = await placesCollection.findOne({ id: pid });
+          if (!place) {
+            return res.status(404).json({ message: "Place not found" });
+          }
+          return res.status(200).json({ place });
+        } else if (uid) {
+          // Get places by user ID
           places = await placesCollection.find({ creator: uid }).toArray();
         } else {
+          // Get all places
           places = await placesCollection.find({}).toArray();
         }
 
@@ -58,11 +67,11 @@ export default async function handler(req, res) {
         return res.status(201).json({ place: newPlace });
 
       case "PATCH":
-        const { pid } = req.query;
+        const { pid: updatePid } = req.query;
         const { title: newTitle, description: newDescription } = req.body;
 
         const result = await placesCollection.updateOne(
-          { id: pid },
+          { id: updatePid },
           {
             $set: {
               title: newTitle,
@@ -79,8 +88,8 @@ export default async function handler(req, res) {
         return res.status(200).json({ message: "Place updated" });
 
       case "DELETE":
-        const { pid: placeId } = req.query;
-        const deleteResult = await placesCollection.deleteOne({ id: placeId });
+        const { pid: deletePid } = req.query;
+        const deleteResult = await placesCollection.deleteOne({ id: deletePid });
 
         if (deleteResult.deletedCount === 0) {
           return res.status(404).json({ message: "Place not found" });
