@@ -1,17 +1,16 @@
 // API Configuration for YourPlaces
-// CRITICAL: Force production API URL for Vercel deployment
-// This MUST always use /api to prevent localhost fallbacks
+// Backend server configuration
 
-// Completely bypass environment variables to prevent build-time issues
+// Use environment variable for API URL with fallback to localhost
 const getApiUrl = () => {
-  // Always return /api for production builds
-  // This prevents any localhost fallbacks during Vercel builds
-  return "/api";
+  // In production, use the deployed backend URL
+  // In development, use localhost:5000
+  return process.env.REACT_APP_BACKEND_URL || "http://localhost:5000/api";
 };
 
 export const API_URL = getApiUrl();
 
-// Double-check: Log the API URL being used (for debugging)
+// Log the API URL being used (for debugging)
 console.log("YourPlaces API_URL:", API_URL);
 
 export default {
