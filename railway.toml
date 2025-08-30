@@ -1,11 +1,13 @@
 # Railway Configuration - Backend Only
-# Frontend should be deployed separately to Vercel
+# This ensures Railway only builds and deploys the backend
 
 [build]
-  command = "cd backend && npm install"
+  command = "cd backend && npm ci --only=production"
 
 [deploy]
   startCommand = "cd backend && npm start"
+  restartPolicyType = "ON_FAILURE"
+  restartPolicyMaxRetries = 10
 
 [env]
   MONGODB_URI = "your_mongodb_connection_string"

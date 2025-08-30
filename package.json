@@ -1,26 +1,21 @@
 {
-  "name": "yourplaces",
+  "name": "yourplaces-backend",
   "version": "1.0.0",
-  "description": "YourPlaces - Share your favorite places",
+  "description": "YourPlaces Backend API",
   "main": "backend/app.js",
   "scripts": {
     "start": "cd backend && npm start",
-    "dev": "cd backend && npm run start",
-    "install-backend": "cd backend && npm install",
-    "install-frontend": "cd frontend && npm install",
-    "heroku-postbuild": "cd frontend && npm install && npm run build"
+    "postinstall": "cd backend && npm install --only=production"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/Abhilashashadapu/yourplaces.git"
   },
   "keywords": [
-    "react",
     "nodejs",
     "express",
     "mongodb",
-    "places",
-    "maps"
+    "api"
   ],
   "author": "Abhilash",
   "license": "MIT",

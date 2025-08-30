@@ -10,6 +10,7 @@ The build error you encountered was because Railway was trying to build both fro
 ## 🔧 Step-by-Step Railway Backend Deployment
 
 ### 1. Railway Project Setup
+
 1. Go to [railway.app](https://railway.app)
 2. Sign up/login with GitHub
 3. Click "New Project"
@@ -17,9 +18,11 @@ The build error you encountered was because Railway was trying to build both fro
 5. Choose your `yourplaces` repository
 
 ### 2. Configure Railway for Backend Only
+
 Railway will automatically detect the `railway.toml` file which is now configured for backend-only deployment.
 
 ### 3. Set Environment Variables
+
 In your Railway dashboard, go to Variables tab and add:
 
 ```bash
@@ -31,10 +34,12 @@ NODE_ENV=production
 ```
 
 ### 4. Deploy Backend
+
 1. Railway will automatically deploy when you push to GitHub
 2. Your backend will be available at: `https://yourapp-production.up.railway.app`
 
 ### 5. Deploy Frontend to Vercel
+
 1. Go to [vercel.com](https://vercel.com)
 2. Import your GitHub repository
 3. Set the Root Directory to `frontend`
@@ -47,21 +52,25 @@ NODE_ENV=production
 ## 🎯 Expected Results
 
 **Backend (Railway):**
+
 - API available at: `https://yourapp-production.up.railway.app/api`
 - Test endpoint: `https://yourapp-production.up.railway.app/api/users`
 
 **Frontend (Vercel):**
+
 - React app available at: `https://yourapp.vercel.app`
 - Connected to Railway backend
 
 ## 🐛 Troubleshooting
 
 ### If Railway build still fails:
+
 1. Check that `railway.toml` is in the root directory
 2. Ensure environment variables are set
 3. Check Railway logs for specific errors
 
 ### If frontend can't connect to backend:
+
 1. Verify `REACT_APP_BACKEND_URL` in Vercel settings
 2. Check CORS settings in backend
 3. Ensure Railway backend is running
