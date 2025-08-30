@@ -1,0 +1,31 @@
+{
+  "name": "yourplaces",
+  "version": "1.0.0",
+  "description": "YourPlaces - A full-stack MERN application for sharing places",
+  "main": "backend/app.js",
+  "scripts": {
+    "start": "cd backend && npm install && npm start",
+    "dev": "cd backend && npm run dev",
+    "install-backend": "cd backend && npm install",
+    "install-frontend": "cd frontend && npm install",
+    "install-all": "npm run install-backend && npm run install-frontend"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "npm": ">=8.0.0"
+  },
+  "keywords": [
+    "react",
+    "nodejs",
+    "express",
+    "mongodb",
+    "places",
+    "mern"
+  ],
+  "author": "Abhilash",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Abhilashashadapu/yourplaces.git"
+  }
+}

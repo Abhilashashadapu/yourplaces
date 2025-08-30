@@ -1,7 +1,10 @@
 # Railway-specific ignore file
 # This helps Railway avoid caching issues
 
-# Node modules
+# Frontend directory (deploying backend only)
+frontend/
+
+# Node modules (except root package.json)
 node_modules/
 */node_modules/
 
@@ -11,7 +14,6 @@ dist/
 .next/
 
 # Environment files
-.env
 .env.local
 .env.production.local
 .env.development.local
@@ -28,8 +30,9 @@ yarn-error.log*
 .cache/
 .parcel-cache/
 
-# Dependencies
-package-lock.json
+# Dependencies (keep root package.json for Railway detection)
+backend/package-lock.json
+frontend/package-lock.json
 yarn.lock
 
 # OS generated files

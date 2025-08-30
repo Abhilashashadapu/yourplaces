@@ -1,4 +1,5 @@
 # 🚀 YourPlaces Deployment Guide
+
 ## Railway Backend + Vercel Frontend
 
 This is the **OFFICIAL** deployment guide for YourPlaces using Railway for backend and Vercel for frontend.
@@ -49,6 +50,7 @@ NODE_ENV=production
 ### 2. Configure Build Settings
 
 Vercel will automatically detect React. Ensure:
+
 - **Framework Preset:** Create React App
 - **Root Directory:** `frontend`
 - **Build Command:** `npm run build`
@@ -78,6 +80,7 @@ REACT_APP_VERSION=1.0.0
 ## ✅ Post-Deployment Checklist
 
 ### Test All Features:
+
 - [ ] User registration/login
 - [ ] Place creation with image upload
 - [ ] Place editing
@@ -86,13 +89,17 @@ REACT_APP_VERSION=1.0.0
 - [ ] Image display
 
 ### Configure CORS (if needed):
+
 If you get CORS errors, add this to your backend `app.js`:
 
 ```javascript
 app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://yourapp.vercel.app');
-  res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept, Authorization');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PATCH, DELETE');
+  res.setHeader("Access-Control-Allow-Origin", "https://yourapp.vercel.app");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  );
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PATCH, DELETE");
   next();
 });
 ```
@@ -111,16 +118,19 @@ Both platforms support automatic deployment:
 ## 🐛 Troubleshooting
 
 ### Backend Issues:
+
 - Check Railway logs in dashboard
 - Verify environment variables are set correctly
 - Ensure MongoDB connection string is correct
 
 ### Frontend Issues:
+
 - Check Vercel deployment logs
 - Verify backend URL is correct in environment variables
 - Ensure CORS is properly configured
 
 ### Authentication Issues:
+
 - Generate new JWT secret if needed: `node -e "console.log(require('crypto').randomBytes(64).toString('hex'))"`
 - Users may need to log out and log back in after JWT secret changes
 
@@ -137,6 +147,7 @@ Both platforms support automatic deployment:
 ## 🎯 Final URLs
 
 After deployment, you'll have:
+
 - **Backend:** `https://yourapp-production.up.railway.app`
 - **Frontend:** `https://yourapp.vercel.app`
 
