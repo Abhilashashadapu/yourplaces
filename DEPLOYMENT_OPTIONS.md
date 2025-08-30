@@ -13,12 +13,14 @@ This guide covers multiple deployment options for your YourPlaces application wi
 ### Option 1: Railway (Recommended for Beginners) ⭐
 
 **Why Railway?**
+
 - Extremely easy setup
 - Great free tier
 - Automatic deployments from GitHub
 - Built-in database support
 
 **Steps:**
+
 1. Go to [railway.app](https://railway.app)
 2. Sign up with GitHub
 3. Create new project → Deploy from GitHub repo
@@ -27,6 +29,7 @@ This guide covers multiple deployment options for your YourPlaces application wi
 6. Set environment variables in Railway dashboard
 
 **Environment Variables for Railway:**
+
 ```bash
 MONGODB_URI=mongodb+srv://ashadapuabhilash:placeguide@placeguide.rpkcnfk.mongodb.net/
 JWT_KEY=your_super_secret_jwt_key_here_change_this_in_production
@@ -42,12 +45,14 @@ NODE_ENV=production
 ### Option 2: Heroku (Popular Choice) 📦
 
 **Why Heroku?**
+
 - Industry standard
 - Great documentation
 - Easy CI/CD
 - Many add-ons available
 
 **Backend Deployment:**
+
 ```bash
 # Install Heroku CLI
 # Create Heroku app
@@ -63,6 +68,7 @@ git subtree push --prefix backend heroku main
 ```
 
 **Frontend Deployment:**
+
 - Deploy frontend to Vercel/Netlify
 - Set `REACT_APP_BACKEND_URL=https://yourplaces-backend.herokuapp.com/api`
 
@@ -73,12 +79,14 @@ git subtree push --prefix backend heroku main
 ### Option 3: Vercel (Frontend) + Railway (Backend) 🎨
 
 **Why this combo?**
+
 - Best of both worlds
 - Vercel excels at React apps
 - Railway great for backends
 - Fast global CDN
 
 **Steps:**
+
 1. Deploy backend to Railway (as described above)
 2. Deploy frontend to Vercel:
    ```bash
@@ -98,20 +106,23 @@ git subtree push --prefix backend heroku main
 ### Option 4: DigitalOcean App Platform 🌊
 
 **Why DigitalOcean?**
+
 - Competitive pricing
 - Good performance
 - Simple setup
 - Integrated monitoring
 
 **Steps:**
+
 1. Go to DigitalOcean App Platform
 2. Connect GitHub repository
 3. Configure build/run commands:
+
    ```yaml
    # Backend
    build_command: cd backend && npm install
    run_command: cd backend && npm start
-   
+
    # Frontend
    build_command: cd frontend && npm run build
    ```
@@ -123,11 +134,13 @@ git subtree push --prefix backend heroku main
 ### Option 5: AWS/Azure/GCP (Enterprise) ☁️
 
 **When to use:**
+
 - Need enterprise features
 - High scalability requirements
 - Complex architecture
 
 **Services:**
+
 - **AWS:** EC2 + RDS + S3 + CloudFront
 - **Azure:** App Service + Cosmos DB + Blob Storage
 - **GCP:** App Engine + Cloud SQL + Cloud Storage
@@ -139,6 +152,7 @@ git subtree push --prefix backend heroku main
 ## 🔧 Pre-Deployment Checklist
 
 ### Backend Preparation:
+
 ```bash
 # Update package.json
 {
@@ -150,6 +164,7 @@ git subtree push --prefix backend heroku main
 ```
 
 ### Frontend Preparation:
+
 ```bash
 # Update package.json
 {
@@ -160,6 +175,7 @@ git subtree push --prefix backend heroku main
 ```
 
 ### Environment Variables:
+
 - [ ] MongoDB connection string
 - [ ] JWT secret key
 - [ ] Google Maps API key
@@ -168,19 +184,25 @@ git subtree push --prefix backend heroku main
 ## 🎯 Recommended Deployment Strategy
 
 ### For Learning/Portfolio:
+
 **Railway + Vercel**
+
 - Railway for backend (free)
 - Vercel for frontend (free)
 - Total cost: $0
 
 ### For Production:
+
 **Heroku + Vercel**
+
 - Heroku for backend ($7/month)
 - Vercel for frontend (free)
 - Total cost: $7/month
 
 ### For Enterprise:
+
 **AWS/Azure/GCP**
+
 - Full cloud infrastructure
 - Auto-scaling
 - Global distribution
@@ -188,12 +210,14 @@ git subtree push --prefix backend heroku main
 ## 📝 Post-Deployment Steps
 
 1. **Test all functionality:**
+
    - User registration/login
    - Place creation/editing/deletion
    - Image uploads
    - Map functionality
 
 2. **Update frontend URL:**
+
    ```bash
    # In frontend .env.production
    REACT_APP_BACKEND_URL=https://your-backend-url.com/api
@@ -216,6 +240,7 @@ git subtree push --prefix backend heroku main
 ## 🔄 Continuous Deployment
 
 Set up automatic deployments:
+
 1. **Railway:** Automatically deploys on git push
 2. **Heroku:** Use GitHub integration
 3. **Vercel:** Automatically deploys from GitHub

@@ -1,5 +1,5 @@
-# Railway Configuration
-# This file helps Railway understand your project structure
+# Railway Configuration - Backend Only
+# Frontend should be deployed separately to Vercel
 
 [build]
   command = "cd backend && npm install"
